@@ -6,7 +6,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'census',
-  password: 'AppleSQL325!',
+  password: 'UPDATE',
   port: 5432, 
 });
 
