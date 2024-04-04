@@ -2,10 +2,9 @@ import './style.css';
 import React, { useState } from 'react';
 
 function App() {
-  const [state, setState] = useState('');
+  const [state, setState] = useState('Alabama');
   const [payroll, setPayroll] = useState('');
   const [year, setYear] = useState('2022');
-  const [responseData, setResponseData] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,10 +23,6 @@ function App() {
       body: JSON.stringify(formData),
     })
     .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      setResponseData(data);
-    })
     .catch(error => {
       console.error(error);
     });

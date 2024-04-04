@@ -26,17 +26,15 @@ app.post('/api', (req, res) => {
     const values = [state, parsedYear, parsedPayroll];
     const result = pool.query(sqlString, values);
 
-    if (result.rows && result.rows.length > 0) {
-      return res.json(result.rows[0]);
-    } else {
-      return res.status(404).send("No rows were affected by the query");
-    }
+    console.log({ state, year, payroll }); 
+    return res.json(result);
+    
+
   } catch (err) {
     console.error(err);
     res.status(500).send("There was an error saving the census data");
   }
-  console.log({ state, year, payroll }); 
-  res.json({ state, year, payroll }); 
+
 });
 
 app.listen(port, () => {
